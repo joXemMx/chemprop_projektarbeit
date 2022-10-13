@@ -6,4 +6,4 @@ tpp_smiles = tpp_data.pop('smiles')
 tpp_data.insert(0, 'smiles', tpp_smiles)
 cp_data = pd.read_csv('../data/tox21.csv')
 
-print(tpp_data.equals(cp_data))
+print('tox21 datasets of ToxPredProjekt and chemprop are equal') if tpp_data.equals(cp_data) else print('tox21 datasets of ToxPredProjekt and chemprop are NOT equal')
