@@ -56,7 +56,7 @@ plt.plot(
     label="micro-average ROC curve (area = {0:0.2f})".format(roc_auc["micro"]),
     color="deeppink",
     linestyle=":",
-    linewidth=4,
+    linewidth=3,
 )
 
 plt.plot(
@@ -65,10 +65,9 @@ plt.plot(
     label="macro-average ROC curve (area = {0:0.2f})".format(roc_auc["macro"]),
     color="navy",
     linestyle=":",
-    linewidth=4,
+    linewidth=3,
 )
 
-lw = 2
 # NUM_COLORS = 12
 # cm = plt.get_cmap('gist_rainbow')
 # colors=[cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)]
@@ -77,11 +76,11 @@ lw = 2
 #         fpr[i],
 #         tpr[i],
 #         color=color,
-#         lw=lw,
+#         lw=1,
 #         label="ROC curve of class {0} (area = {1:0.2f})".format(i, roc_auc[i]),
 #     )
 
-plt.plot([0, 1], [0, 1], "k--", lw=lw)
+plt.plot([0, 1], [0, 1], "k--", lw=2)
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])
 plt.xlabel("False Positive Rate")
