@@ -4,9 +4,11 @@ import matplotlib.pyplot as plt
 from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 
+model = '/home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/optimized_manualSplit/'
+
 act = pd.read_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split/tox21_test.csv')
 act = act[list(act)[1:]].fillna(0)
-preds = pd.read_csv('/home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/optimized_manualSplit/predictions.csv')
+preds = pd.read_csv(model + 'predictions.csv')
 preds = preds[list(preds)[1:]]
 
 score_roc_auc = roc_auc_score(act,preds)
@@ -88,4 +90,4 @@ plt.ylabel("True Positive Rate")
 plt.title("Some extension of Receiver operating characteristic to multiclass")
 plt.legend(loc="lower right")
 plt.show()
-plt.savefig('testplot.png')
+plt.savefig(model+'auc_plot.png')
