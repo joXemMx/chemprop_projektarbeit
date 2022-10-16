@@ -5,13 +5,16 @@ python train.py --data_path data/tox21.csv --dataset_type classification --save_
 python train.py --data_path data/tox21_split/tox21_train.csv --separate_val_path data/tox21_split/tox21_validation.csv --separate_test_path data/tox21_split/tox21_test.csv --dataset_type classification --save_dir tox21_checkpoints/standard_manualSplit --quiet
 
 # optimize hyperparameters on train set
-python hyperparameter_optimization.py --data_path data/tox21_split/tox21_train.csv --dataset_type classification --epochs=30 --seed=42 --num_iters=100 --config_save_path data/tox21_split/config.txt --log_dir data/tox21_split/logs
+python hyperparameter_optimization.py --data_path data/tox21_split/tox21_train.csv --dataset_type classification --epochs=30 --seed=0 --num_iters=100 --config_save_path data/tox21_split/config.txt --log_dir data/tox21_split/logs
 
 # train on seperate train/test/val with optimized hyperparameter
 python train.py --data_path data/tox21_split/tox21_train.csv --separate_val_path data/tox21_split/tox21_validation.csv --separate_test_path data/tox21_split/tox21_test.csv --dataset_type classification --config_path data/tox21_split/config.txt --save_dir tox21_checkpoints/optimized_1 --quiet
 
 # predicting from a trained model
 python predict.py --test_path data/tox21_split/tox21_test.csv --checkpoint_path tox21_checkpoints/optimized_manualSplit/fold_0/model_0/model.pt --preds_path tox21_checkpoints/optimized_manualSplit/predictions.csv
+
+# predicting from a trained model ensemble
+python predict.py --test_path data/tox21_split/tox21_test.csv --checkpoint_dir tox21_checkpoints/standard_10fold_gpu --preds_path tox21_checkpoints/standard_10fold_gpu/predictions.csv
 
 # predict on other data
 python predict.py --test_path data/all-bio-structures-inchis-and-smiles.csv --checkpoint_dir tox21_checkpoints/standard --preds_path predictions/all_preds.csv --smiles_columns SMILES
