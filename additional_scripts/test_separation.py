@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os
 
 data_path = '../data/tox21.csv'
@@ -16,8 +17,7 @@ del test_idx
 del test_data
 
 train_idx = pd.read_csv(splits_path+'train.csv.gz', compression='gzip').to_numpy().flatten()
-train_data = pd.concat([data.iloc[[k]] for k in train_idx])
 val_idx = pd.read_csv(splits_path+'valid.csv.gz', compression='gzip').to_numpy().flatten()
-val_data = pd.concat([data.iloc[[k]] for k in val_idx])
-train_val = pd.concat(train_data, val_data)
+train_val_idx = np.concatenate([train_idx, val_idx])
+train_val = pd.concat([data.iloc[[k]] for k in train_val_idx])
 train_val.to_csv('../data/tox21_split/tox21_train_val.csv', index=False)
