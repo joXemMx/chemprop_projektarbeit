@@ -4,6 +4,9 @@ python train.py --data_path data/tox21.csv --dataset_type classification --save_
 # train on seperate train/test/val 
 python train.py --data_path data/tox21_split/tox21_train.csv --separate_val_path data/tox21_split/tox21_validation.csv --separate_test_path data/tox21_split/tox21_test.csv --dataset_type classification --save_dir tox21_checkpoints/standard_manualSplit --quiet
 
+# cross validation training, results in model ensemble
+python /home/vo87poq/chemprop_projektarbeit/train.py --data_path /home/vo87poq/chemprop_projektarbeit/data/tox21.csv --dataset_type classification --save_dir /home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/standard_10fold_gpu --split_type scaffold_balanced --num_folds 10 --quiet
+
 # optimize hyperparameters on train set
 python hyperparameter_optimization.py --data_path data/tox21_split/tox21_train.csv --dataset_type classification --epochs=30 --seed=0 --num_iters=100 --config_save_path data/tox21_split/config.txt --log_dir data/tox21_split/logs
 
