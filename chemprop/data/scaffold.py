@@ -126,18 +126,18 @@ def scaffold_split(data: MoleculeDataset,
     if logger is not None:
         log_scaffold_stats(data, index_sets, logger=logger)
 
+    # for datasplit save
+    train_pd = pd.DataFrame(train)
+    train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train.csv', index=False)
+    test_pd = pd.DataFrame(test)
+    test_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_test.csv', index=False)
+    val_pd = pd.DataFrame(val)
+    val_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_validation.csv', index=False) 
+        
     # Map from indices to data
     train = [data[i] for i in train]
     val = [data[i] for i in val]
     test = [data[i] for i in test]
-    
-    # for datasplit save
-    train_pd = pd.DataFrame(MoleculeDataset(train))
-    train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train.csv', index=False)
-    test_pd = pd.DataFrame(MoleculeDataset(test))
-    test_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_test.csv', index=False)
-    val_pd = pd.DataFrame(MoleculeDataset(val))
-    val_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_validation.csv', index=False)
 
     return MoleculeDataset(train), MoleculeDataset(val), MoleculeDataset(test)
 
