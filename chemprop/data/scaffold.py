@@ -127,11 +127,12 @@ def scaffold_split(data: MoleculeDataset,
         log_scaffold_stats(data, index_sets, logger=logger)
 
     # for datasplit save
-    train_pd = pd.DataFrame(train)
+    # start at index 1 as index 0 is otherwise "0" in all three sets
+    train_pd = pd.DataFrame(train[1:])
     train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train.csv', index=False)
-    test_pd = pd.DataFrame(test)
+    test_pd = pd.DataFrame(test[1:])
     test_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_test.csv', index=False)
-    val_pd = pd.DataFrame(val)
+    val_pd = pd.DataFrame(val[1:])
     val_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_validation.csv', index=False) 
         
     # Map from indices to data
