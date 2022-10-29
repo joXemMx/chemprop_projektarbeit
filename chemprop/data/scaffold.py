@@ -127,7 +127,6 @@ def scaffold_split(data: MoleculeDataset,
         log_scaffold_stats(data, index_sets, logger=logger)
 
     # for datasplit save
-    # start at index 1 as index 0 is otherwise "0" in all three sets
     train_pd = pd.DataFrame(train)
     train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train.csv', index=False, header=False)
     test_pd = pd.DataFrame(test)
