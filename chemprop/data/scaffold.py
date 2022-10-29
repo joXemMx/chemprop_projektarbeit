@@ -132,11 +132,11 @@ def scaffold_split(data: MoleculeDataset,
     test = [data[i] for i in test]
     
     # for datasplit save
-    train_pd = pd.DataFrame(train)
+    train_pd = pd.DataFrame(MoleculeDataset(train))
     train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train.csv', index=False)
-    test_pd = pd.DataFrame(test)
+    test_pd = pd.DataFrame(MoleculeDataset(test))
     test_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_test.csv', index=False)
-    val_pd = pd.DataFrame(val)
+    val_pd = pd.DataFrame(MoleculeDataset(val))
     val_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_validation.csv', index=False)
 
     return MoleculeDataset(train), MoleculeDataset(val), MoleculeDataset(test)
