@@ -127,12 +127,12 @@ def scaffold_split(data: MoleculeDataset,
         log_scaffold_stats(data, index_sets, logger=logger)
 
     # for datasplit save
-    train_pd = pd.DataFrame(train)
-    train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train_idx.csv', index=False, header=False)
-    test_pd = pd.DataFrame(test)
-    test_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_test_idx.csv', index=False, header=False)
-    val_pd = pd.DataFrame(val)
-    val_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_valid_idx.csv', index=False, header=False) 
+    #train_pd = pd.DataFrame(train)
+    #train_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_train_idx.csv', index=False, header=False)
+    #test_pd = pd.DataFrame(test)
+    #test_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_test_idx.csv', index=False, header=False)
+    #val_pd = pd.DataFrame(val)
+    #val_pd.to_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split_chemprop/tox21_valid_idx.csv', index=False, header=False) 
         
     # Map from indices to data
     train = [data[i] for i in train]
