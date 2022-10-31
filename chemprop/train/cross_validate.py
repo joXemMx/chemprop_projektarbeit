@@ -96,7 +96,7 @@ def cross_validate(args: TrainArgs,
 
     if args.target_weights is not None and len(args.target_weights) != args.num_tasks:
         raise ValueError('The number of provided target weights must match the number and order of the prediction tasks')
-
+    
     # Run training on different random seeds for each fold
     all_scores = defaultdict(list)
     for fold_num in range(args.num_folds):
@@ -105,7 +105,7 @@ def cross_validate(args: TrainArgs,
         args.save_dir = os.path.join(save_dir, f'fold_{fold_num}')
         makedirs(args.save_dir)
         data.reset_features_and_targets()
-
+        
         # If resuming experiment, load results from trained models
         test_scores_path = os.path.join(args.save_dir, 'test_scores.json')
         if args.resume_experiment and os.path.exists(test_scores_path):
@@ -115,7 +115,6 @@ def cross_validate(args: TrainArgs,
         # Otherwise, train the models
         else:
             model_scores = train_func(args, data, logger)
-
         for metric, scores in model_scores.items():
             all_scores[metric].append(scores)
     all_scores = dict(all_scores)

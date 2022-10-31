@@ -37,6 +37,7 @@ def run_training(args: TrainArgs,
     :return: A dictionary mapping each metric in :code:`args.metrics` to a list of values for each task.
 
     """
+    
     if logger is not None:
         debug, info = logger.debug, logger.info
     else:
@@ -44,7 +45,6 @@ def run_training(args: TrainArgs,
 
     # Set pytorch seed for random initial weights
     torch.manual_seed(args.pytorch_seed)
-
     # Split data
     debug(f'Splitting data with seed {args.seed}')
     if args.separate_test_path:
@@ -222,7 +222,6 @@ def run_training(args: TrainArgs,
 
     if args.class_balance:
         debug(f'With class_balance, effective train size = {train_data_loader.iter_size:,}')
-
     # Train ensemble of models
     for model_idx in range(args.ensemble_size):
         # Tensorboard writer

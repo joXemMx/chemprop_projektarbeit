@@ -1,17 +1,34 @@
 import numpy as np
 import pandas as pd
+import math
 import matplotlib.pyplot as plt
 from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
+from sklearn.preprocessing import MultiLabelBinarizer
+model = './tox21_checkpoints/tox21_split/'
 
-model = '/home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/optimized_manualSplit/'
+targets = pd.read_csv('./data/tox21_split/tox21_test.csv')
+num_tasks = len(list(targets)[1:])-1
+targets = targets[list(targets)[1:]]
 
-act = pd.read_csv('/home/vo87poq/chemprop_projektarbeit/data/tox21_split/tox21_test.csv')
-act = act[list(act)[1:]].fillna(0)
+targets = (targets.values.tolist())
+
+valid_preds = [[] for _ in range(num_tasks)]
+valid_targets = [[] for _ in range(num_tasks)]
 preds = pd.read_csv(model + 'predictions.csv')
 preds = preds[list(preds)[1:]]
-
-score_roc_auc = roc_auc_score(act,preds)
+preds = preds.values.tolist()
+for i in range(num_tasks):
+    for j in range(len(preds)-1):
+        if not math.isnan(targets[j][i]):  # Skip those without targets
+            valid_preds[i].append(preds[j][i])
+            valid_targets[i].append(targets[j][i])
+        #if math.isnan(valid_preds[i]):        
+mlb = MultiLabelBinarizer()
+#### Noch ins alte Dataframe bekommen!!
+x = mlb.fit_transform(valid_targets)
+y = mlb.fit_transform(valid_preds)
+score_roc_auc = roc_auc_score(valid_targets,valid_preds)
 
 ## for one class:
 # fpr, tpr, thresholds = roc_curve(act[list(act)[1]].to_numpy(), preds[list(preds)[1]].to_numpy())
@@ -24,16 +41,16 @@ score_roc_auc = roc_auc_score(act,preds)
 
 # for every class
 # following: https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html
-n_classes = len(act.columns)
+n_classes = len(targets.columns)
 fpr = dict()
 tpr = dict()
 roc_auc = dict()
 for i in range(n_classes):
-    fpr[i], tpr[i], _ = roc_curve(act[list(act)[i]].to_numpy(), preds[list(preds)[i]].to_numpy())
+    fpr[i], tpr[i], _ = roc_curve(targets[list(targets)[i]].to_numpy(), preds[list(preds)[i]].to_numpy())
     roc_auc[i] = auc(fpr[i], tpr[i])
 
 # Compute micro-average ROC curve and ROC area
-fpr["micro"], tpr["micro"], _ = roc_curve(act.to_numpy().ravel(), preds.to_numpy().ravel())
+fpr["micro"], tpr["micro"], _ = roc_curve(targets.to_numpy().ravel(), preds.to_numpy().ravel())
 roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
 
 # First aggregate all false positive rates
