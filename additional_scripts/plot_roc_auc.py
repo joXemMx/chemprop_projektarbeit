@@ -10,7 +10,7 @@ model = './tox21_checkpoints/tox21_split/'
 targets = pd.read_csv('./data/tox21_split/tox21_test.csv')
 num_tasks = len(list(targets)[1:])-1
 targets = targets[list(targets)[1:]]
-
+targets_head = targets.columns
 targets = (targets.values.tolist())
 
 valid_preds = [[] for _ in range(num_tasks)]
@@ -24,12 +24,8 @@ for i in range(num_tasks):
             valid_preds[i].append(preds[j][i])
             valid_targets[i].append(targets[j][i])
         #if math.isnan(valid_preds[i]):        
-mlb = MultiLabelBinarizer()
-#### Noch ins alte Dataframe bekommen!!
-x = mlb.fit_transform(valid_targets)
-y = mlb.fit_transform(valid_preds)
-score_roc_auc = roc_auc_score(valid_targets,valid_preds)
 
+#score_roc_auc = roc_auc_score(tt,pp)
 ## for one class:
 # fpr, tpr, thresholds = roc_curve(act[list(act)[1]].to_numpy(), preds[list(preds)[1]].to_numpy())
 # roc_auc = auc(fpr, tpr)
@@ -38,19 +34,25 @@ score_roc_auc = roc_auc_score(valid_targets,valid_preds)
 # plt.show()
 # plt.title("Receiver operating characteristic")
 # plt.savefig('testplot.png')
-
 # for every class
 # following: https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html
-n_classes = len(targets.columns)
+n_classes = len(targets_head)-1
 fpr = dict()
 tpr = dict()
 roc_auc = dict()
 for i in range(n_classes):
-    fpr[i], tpr[i], _ = roc_curve(targets[list(targets)[i]].to_numpy(), preds[list(preds)[i]].to_numpy())
+    fpr[i], tpr[i], _ = roc_curve(valid_targets[i], valid_preds[i])
     roc_auc[i] = auc(fpr[i], tpr[i])
 
+# mlb = MultiLabelBinarizer()
+# mlb.fit([targets_head])
+# print(mlb.classes_)
+
+x=np.hstack(valid_targets)
+y=np.hstack(valid_preds)
+
 # Compute micro-average ROC curve and ROC area
-fpr["micro"], tpr["micro"], _ = roc_curve(targets.to_numpy().ravel(), preds.to_numpy().ravel())
+fpr["micro"], tpr["micro"], _ = roc_curve(x.ravel(), y.ravel())
 roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
 
 # First aggregate all false positive rates
