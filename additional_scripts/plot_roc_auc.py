@@ -5,27 +5,15 @@ import matplotlib.pyplot as plt
 from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.preprocessing import MultiLabelBinarizer
-model = './tox21_checkpoints/tox21_split/'
+model = './tox21_checkpoints/standard_manualSplit/'
 
-targets = pd.read_csv('./data/tox21_split/tox21_test.csv')
-num_tasks = len(list(targets)[1:])-1
-targets = targets[list(targets)[1:]]
-targets_head = targets.columns
-targets = (targets.values.tolist())
-
-valid_preds = [[] for _ in range(num_tasks)]
-valid_targets = [[] for _ in range(num_tasks)]
+act = pd.read_csv('./data/tox21_split/tox21_test.csv')
+act = act[list(act)[1:]]
 preds = pd.read_csv(model + 'predictions.csv')
 preds = preds[list(preds)[1:]]
-preds = preds.values.tolist()
-for i in range(num_tasks):
-    for j in range(len(preds)-1):
-        if not math.isnan(targets[j][i]):  # Skip those without targets
-            valid_preds[i].append(preds[j][i])
-            valid_targets[i].append(targets[j][i])
-        #if math.isnan(valid_preds[i]):        
 
-#score_roc_auc = roc_auc_score(tt,pp)
+#score_roc_auc = roc_auc_score(act,preds)
+
 ## for one class:
 # fpr, tpr, thresholds = roc_curve(act[list(act)[1]].to_numpy(), preds[list(preds)[1]].to_numpy())
 # roc_auc = auc(fpr, tpr)
@@ -34,25 +22,23 @@ for i in range(num_tasks):
 # plt.show()
 # plt.title("Receiver operating characteristic")
 # plt.savefig('testplot.png')
+
 # for every class
 # following: https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html
-n_classes = len(targets_head)-1
+n_classes = len(act.columns)
 fpr = dict()
 tpr = dict()
 roc_auc = dict()
 for i in range(n_classes):
-    fpr[i], tpr[i], _ = roc_curve(valid_targets[i], valid_preds[i])
+    a = act[list(act)[i]].to_numpy()
+    p = preds[list(preds)[i]].to_numpy()
+    fpr[i], tpr[i], _ = roc_curve(a[~np.isnan(a)], p[~np.isnan(a)])
     roc_auc[i] = auc(fpr[i], tpr[i])
 
-# mlb = MultiLabelBinarizer()
-# mlb.fit([targets_head])
-# print(mlb.classes_)
-
-x=np.hstack(valid_targets)
-y=np.hstack(valid_preds)
-
 # Compute micro-average ROC curve and ROC area
-fpr["micro"], tpr["micro"], _ = roc_curve(x.ravel(), y.ravel())
+a = act.to_numpy().ravel()
+p = preds.to_numpy().ravel()
+fpr["micro"], tpr["micro"], _ = roc_curve(a[~np.isnan(a)], p[~np.isnan(a)])
 roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
 
 # First aggregate all false positive rates
@@ -74,7 +60,7 @@ plt.figure()
 plt.plot(
     fpr["micro"],
     tpr["micro"],
-    label="micro-average ROC curve (area = {0:0.2f})".format(roc_auc["micro"]),
+    label="micro-average ROC curve (area = {0:0.5f})".format(roc_auc["micro"]),
     color="deeppink",
     linestyle=":",
     linewidth=3,
@@ -83,7 +69,7 @@ plt.plot(
 plt.plot(
     fpr["macro"],
     tpr["macro"],
-    label="macro-average ROC curve (area = {0:0.2f})".format(roc_auc["macro"]),
+    label="macro-average ROC curve (area = {0:0.5f})".format(roc_auc["macro"]),
     color="navy",
     linestyle=":",
     linewidth=3,
@@ -109,4 +95,4 @@ plt.ylabel("True Positive Rate")
 plt.title("Some extension of Receiver operating characteristic to multiclass")
 plt.legend(loc="lower right")
 plt.show()
-plt.savefig(model+'auc_plot.png')
+plt.savefig(model+'auc_plot_new.png')
