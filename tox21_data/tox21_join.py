@@ -51,6 +51,7 @@ eval[eval.columns.difference(['SMILES', 'ID'])] = eval[eval.columns.difference([
 
 # merge to data from before
 df_merged = pd.merge(df_merged, eval, how = 'outer')
+df_merged = df_merged.drop('ID', axis=1)
 
 ### save resulting dataframe
 
