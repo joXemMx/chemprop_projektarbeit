@@ -29,7 +29,7 @@ df_merged = reduce(lambda left,right: pd.merge(left,right,how='outer'), dfs)
 os.chdir("../tox21_testing/tox21_10k_challenge_test")
 
 test = pd.read_csv("tox21_10k_challenge_test.smiles", sep="\t", names = ['SMILES', 'trash', 'ID', 'NR-AR', 'NR-AR-LBD', 'NR-AhR', 'NR-ER', 'NR-ER-LBD', 'NR-PPAR-gamma', 'SR-ARE', 'SR-ATAD5', 'SR-HSE', 'SR-MMP', 'SR-p53'])
-test.drop('trash', axis=1)
+test = test.drop('trash', axis=1)
 
 # merge to data from before
 df_merged = pd.merge(df_merged, test, how = 'outer')
