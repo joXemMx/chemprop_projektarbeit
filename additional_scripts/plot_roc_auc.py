@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.preprocessing import MultiLabelBinarizer
-model = './tox21_checkpoints/standard_manualSplit/'
+model = './tox21_checkpoints/standard_set/D-MPNN_randomSplit/'
 
-act = pd.read_csv('./data/tox21_split/tox21_test.csv')
+act = pd.read_csv(model+'/fold_0/test_full.csv')
 act = act[list(act)[1:]]
-preds = pd.read_csv(model + 'predictions.csv')
+preds = pd.read_csv(model + 'fold_0/test_preds.csv')
 preds = preds[list(preds)[1:]]
 
 #score_roc_auc = roc_auc_score(act,preds)
@@ -60,7 +60,7 @@ plt.figure()
 plt.plot(
     fpr["micro"],
     tpr["micro"],
-    label="micro-average ROC curve (area = {0:0.5f})".format(roc_auc["micro"]),
+    label="micro-average ROC curve (area = {0:0.6f})".format(roc_auc["micro"]),
     color="deeppink",
     linestyle=":",
     linewidth=3,
@@ -69,7 +69,7 @@ plt.plot(
 plt.plot(
     fpr["macro"],
     tpr["macro"],
-    label="macro-average ROC curve (area = {0:0.5f})".format(roc_auc["macro"]),
+    label="macro-average ROC curve (area = {0:0.6f})".format(roc_auc["macro"]),
     color="navy",
     linestyle=":",
     linewidth=3,
@@ -95,4 +95,4 @@ plt.ylabel("True Positive Rate")
 plt.title("Some extension of Receiver operating characteristic to multiclass")
 plt.legend(loc="lower right")
 plt.show()
-plt.savefig(model+'auc_plot_new.png')
+plt.savefig(model+'auc_plot.png')
