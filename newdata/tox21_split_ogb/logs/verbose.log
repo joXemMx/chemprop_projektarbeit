@@ -1,0 +1,707 @@
+Creating search space using parameters ['dropout', 'depth', 'ffn_num_layers', 'linked_hidden_size'].
+No manual trials loaded as part of hyperparameter search
+Initiating trial with seed 0
+Loaded 0 previous trials
+Parameters assigned with random search, 50 random trials remaining
+Trial results with seed 0
+{'depth': 5, 'dropout': 0.1, 'ffn_num_layers': 1, 'linked_hidden_size': 1700}
+num params: 6,278,112
+0.8258021344399943 +/- 0.0 auc
+Initiating trial with seed 1
+Loaded 1 previous trials
+Parameters assigned with random search, 49 random trials remaining
+Trial results with seed 1
+{'depth': 3, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 1400}
+num params: 6,291,612
+0.8328126931043504 +/- 0.0 auc
+Initiating trial with seed 2
+Loaded 2 previous trials
+Parameters assigned with random search, 48 random trials remaining
+Trial results with seed 2
+{'depth': 5, 'dropout': 0.15000000000000002, 'ffn_num_layers': 1, 'linked_hidden_size': 1600}
+num params: 5,588,812
+0.8195400313836725 +/- 0.0 auc
+Initiating trial with seed 3
+Loaded 3 previous trials
+Parameters assigned with random search, 47 random trials remaining
+Trial results with seed 3
+{'depth': 5, 'dropout': 0.05, 'ffn_num_layers': 2, 'linked_hidden_size': 2200}
+num params: 15,166,812
+0.8309968296603594 +/- 0.0 auc
+Initiating trial with seed 4
+Loaded 4 previous trials
+Parameters assigned with random search, 46 random trials remaining
+Trial results with seed 4
+{'depth': 5, 'dropout': 0.05, 'ffn_num_layers': 2, 'linked_hidden_size': 700}
+num params: 1,675,812
+0.8298503308825206 +/- 0.0 auc
+Initiating trial with seed 5
+Loaded 5 previous trials
+Parameters assigned with random search, 45 random trials remaining
+Trial results with seed 5
+{'depth': 4, 'dropout': 0.2, 'ffn_num_layers': 1, 'linked_hidden_size': 1600}
+num params: 5,588,812
+0.8139101876006803 +/- 0.0 auc
+Initiating trial with seed 6
+Loaded 6 previous trials
+Parameters assigned with random search, 44 random trials remaining
+Trial results with seed 6
+{'depth': 4, 'dropout': 0.4, 'ffn_num_layers': 1, 'linked_hidden_size': 1700}
+num params: 6,278,112
+0.8094679857427184 +/- 0.0 auc
+Initiating trial with seed 7
+Loaded 7 previous trials
+Parameters assigned with random search, 43 random trials remaining
+Trial results with seed 7
+{'depth': 5, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 800}
+num params: 2,155,212
+0.8310533690837834 +/- 0.0 auc
+Initiating trial with seed 8
+Loaded 8 previous trials
+Parameters assigned with random search, 42 random trials remaining
+Trial results with seed 8
+{'depth': 5, 'dropout': 0.4, 'ffn_num_layers': 1, 'linked_hidden_size': 1400}
+num params: 4,330,212
+0.8193705174824853 +/- 0.0 auc
+Initiating trial with seed 9
+Loaded 9 previous trials
+Parameters assigned with random search, 41 random trials remaining
+Trial results with seed 9
+{'depth': 3, 'dropout': 0.05, 'ffn_num_layers': 3, 'linked_hidden_size': 1500}
+num params: 9,442,512
+0.8220638062280873 +/- 0.0 auc
+Initiating trial with seed 10
+Loaded 10 previous trials
+Parameters assigned with random search, 40 random trials remaining
+Trial results with seed 10
+{'depth': 3, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 2100}
+num params: 13,847,412
+0.827225496187414 +/- 0.0 auc
+Initiating trial with seed 11
+Loaded 11 previous trials
+Parameters assigned with random search, 39 random trials remaining
+Trial results with seed 11
+{'depth': 4, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 2000}
+num params: 12,588,012
+0.8235231520478496 +/- 0.0 auc
+Initiating trial with seed 12
+Loaded 12 previous trials
+Parameters assigned with random search, 38 random trials remaining
+Trial results with seed 12
+{'depth': 4, 'dropout': 0.4, 'ffn_num_layers': 1, 'linked_hidden_size': 1500}
+num params: 4,939,512
+0.8077509406232631 +/- 0.0 auc
+Initiating trial with seed 13
+Loaded 13 previous trials
+Parameters assigned with random search, 37 random trials remaining
+Trial results with seed 13
+{'depth': 3, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 400}
+num params: 597,612
+0.8181457133964871 +/- 0.0 auc
+Initiating trial with seed 14
+Loaded 14 previous trials
+Parameters assigned with random search, 36 random trials remaining
+Trial results with seed 14
+{'depth': 2, 'dropout': 0.25, 'ffn_num_layers': 1, 'linked_hidden_size': 1500}
+num params: 4,939,512
+0.8002441705123596 +/- 0.0 auc
+Initiating trial with seed 15
+Loaded 15 previous trials
+Parameters assigned with random search, 35 random trials remaining
+Trial results with seed 15
+{'depth': 4, 'dropout': 0.4, 'ffn_num_layers': 2, 'linked_hidden_size': 2000}
+num params: 12,588,012
+0.8340963298980807 +/- 0.0 auc
+Initiating trial with seed 16
+Loaded 16 previous trials
+Parameters assigned with random search, 34 random trials remaining
+Trial results with seed 16
+{'depth': 5, 'dropout': 0.25, 'ffn_num_layers': 1, 'linked_hidden_size': 900}
+num params: 1,883,712
+0.8050529326458401 +/- 0.0 auc
+Initiating trial with seed 17
+Loaded 17 previous trials
+Parameters assigned with random search, 33 random trials remaining
+Trial results with seed 17
+{'depth': 4, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 2200}
+num params: 15,166,812
+0.8285873880288789 +/- 0.0 auc
+Initiating trial with seed 18
+Loaded 18 previous trials
+Parameters assigned with random search, 32 random trials remaining
+Trial results with seed 18
+{'depth': 5, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 700}
+num params: 1,675,812
+0.8298369650383375 +/- 0.0 auc
+Initiating trial with seed 19
+Loaded 19 previous trials
+Parameters assigned with random search, 31 random trials remaining
+Trial results with seed 19
+{'depth': 3, 'dropout': 0.30000000000000004, 'ffn_num_layers': 3, 'linked_hidden_size': 1900}
+num params: 15,000,512
+0.8248340208458106 +/- 0.0 auc
+Initiating trial with seed 20
+Loaded 20 previous trials
+Parameters assigned with random search, 30 random trials remaining
+Trial results with seed 20
+{'depth': 2, 'dropout': 0.30000000000000004, 'ffn_num_layers': 3, 'linked_hidden_size': 700}
+num params: 2,166,512
+0.8236277909028556 +/- 0.0 auc
+Initiating trial with seed 21
+Loaded 21 previous trials
+Parameters assigned with random search, 29 random trials remaining
+Trial results with seed 21
+{'depth': 5, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 500}
+num params: 1,147,512
+0.8354648390001936 +/- 0.0 auc
+Initiating trial with seed 22
+Loaded 22 previous trials
+Parameters assigned with random search, 28 random trials remaining
+Trial results with seed 22
+{'depth': 4, 'dropout': 0.05, 'ffn_num_layers': 2, 'linked_hidden_size': 600}
+num params: 1,256,412
+0.8306514831796058 +/- 0.0 auc
+Initiating trial with seed 23
+Loaded 23 previous trials
+Parameters assigned with random search, 27 random trials remaining
+Trial results with seed 23
+{'depth': 5, 'dropout': 0.35000000000000003, 'ffn_num_layers': 1, 'linked_hidden_size': 600}
+num params: 895,812
+0.8184970385998338 +/- 0.0 auc
+Initiating trial with seed 24
+Loaded 24 previous trials
+Parameters assigned with random search, 26 random trials remaining
+Trial results with seed 24
+{'depth': 5, 'dropout': 0.30000000000000004, 'ffn_num_layers': 2, 'linked_hidden_size': 400}
+num params: 597,612
+0.8190039325741879 +/- 0.0 auc
+Initiating trial with seed 25
+Loaded 25 previous trials
+Parameters assigned with random search, 25 random trials remaining
+Trial results with seed 25
+{'depth': 3, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 1100}
+num params: 5,164,512
+0.8334129103561088 +/- 0.0 auc
+Initiating trial with seed 26
+Loaded 26 previous trials
+Parameters assigned with random search, 24 random trials remaining
+Trial results with seed 26
+{'depth': 6, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 1000}
+num params: 3,294,012
+0.8376101473572964 +/- 0.0 auc
+Initiating trial with seed 27
+Loaded 27 previous trials
+Parameters assigned with random search, 23 random trials remaining
+Trial results with seed 27
+{'depth': 4, 'dropout': 0.15000000000000002, 'ffn_num_layers': 1, 'linked_hidden_size': 1200}
+num params: 3,231,612
+0.812574895186649 +/- 0.0 auc
+Initiating trial with seed 28
+Loaded 28 previous trials
+Parameters assigned with random search, 22 random trials remaining
+Trial results with seed 28
+{'depth': 3, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 1600}
+num params: 8,150,412
+0.8343227184280435 +/- 0.0 auc
+Initiating trial with seed 29
+Loaded 29 previous trials
+Parameters assigned with random search, 21 random trials remaining
+Trial results with seed 29
+{'depth': 5, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 1300}
+num params: 5,452,212
+0.8306682088829879 +/- 0.0 auc
+Initiating trial with seed 30
+Loaded 30 previous trials
+Parameters assigned with random search, 20 random trials remaining
+Trial results with seed 30
+{'depth': 4, 'dropout': 0.15000000000000002, 'ffn_num_layers': 1, 'linked_hidden_size': 800}
+num params: 1,514,412
+0.811380447268465 +/- 0.0 auc
+Initiating trial with seed 31
+Loaded 31 previous trials
+Parameters assigned with random search, 19 random trials remaining
+Trial results with seed 31
+{'depth': 4, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 1900}
+num params: 11,388,612
+0.8309457825490276 +/- 0.0 auc
+Initiating trial with seed 32
+Loaded 32 previous trials
+Parameters assigned with random search, 18 random trials remaining
+Trial results with seed 32
+{'depth': 3, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 1700}
+num params: 9,169,812
+0.832506346556208 +/- 0.0 auc
+Initiating trial with seed 33
+Loaded 33 previous trials
+Parameters assigned with random search, 17 random trials remaining
+Trial results with seed 33
+{'depth': 3, 'dropout': 0.25, 'ffn_num_layers': 1, 'linked_hidden_size': 1900}
+num params: 7,776,712
+0.8073400785619569 +/- 0.0 auc
+Initiating trial with seed 34
+Loaded 34 previous trials
+Parameters assigned with random search, 16 random trials remaining
+Trial results with seed 34
+{'depth': 4, 'dropout': 0.05, 'ffn_num_layers': 2, 'linked_hidden_size': 2000}
+num params: 12,588,012
+0.8252728915158888 +/- 0.0 auc
+Initiating trial with seed 35
+Loaded 35 previous trials
+Parameters assigned with random search, 15 random trials remaining
+Trial results with seed 35
+{'depth': 3, 'dropout': 0.1, 'ffn_num_layers': 2, 'linked_hidden_size': 300}
+num params: 358,212
+0.8193365522500833 +/- 0.0 auc
+Initiating trial with seed 36
+Loaded 36 previous trials
+Parameters assigned with random search, 14 random trials remaining
+Trial results with seed 36
+{'depth': 2, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1400}
+num params: 6,291,612
+0.8154721254293912 +/- 0.0 auc
+Initiating trial with seed 37
+Loaded 37 previous trials
+Parameters assigned with random search, 13 random trials remaining
+Trial results with seed 37
+{'depth': 4, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 800}
+num params: 2,155,212
+0.8163952205791297 +/- 0.0 auc
+Initiating trial with seed 38
+Loaded 38 previous trials
+Parameters assigned with random search, 12 random trials remaining
+Trial results with seed 38
+{'depth': 2, 'dropout': 0.25, 'ffn_num_layers': 1, 'linked_hidden_size': 1600}
+num params: 5,588,812
+0.7976142007395186 +/- 0.0 auc
+Initiating trial with seed 39
+Loaded 39 previous trials
+Parameters assigned with random search, 11 random trials remaining
+Trial results with seed 39
+{'depth': 3, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 900}
+num params: 2,694,612
+0.8345118027843252 +/- 0.0 auc
+Initiating trial with seed 40
+Loaded 40 previous trials
+Parameters assigned with random search, 10 random trials remaining
+Trial results with seed 40
+{'depth': 5, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 1600}
+num params: 8,150,412
+0.8252654022604338 +/- 0.0 auc
+Initiating trial with seed 41
+Loaded 41 previous trials
+Parameters assigned with random search, 9 random trials remaining
+Trial results with seed 41
+{'depth': 5, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 1200}
+num params: 4,672,812
+0.8313732701256019 +/- 0.0 auc
+Initiating trial with seed 42
+Loaded 42 previous trials
+Parameters assigned with random search, 8 random trials remaining
+Trial results with seed 42
+{'depth': 5, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 2000}
+num params: 12,588,012
+0.8258727116417539 +/- 0.0 auc
+Initiating trial with seed 43
+Loaded 43 previous trials
+Parameters assigned with random search, 7 random trials remaining
+Trial results with seed 43
+{'depth': 6, 'dropout': 0.35000000000000003, 'ffn_num_layers': 1, 'linked_hidden_size': 800}
+num params: 1,514,412
+0.8198173645130563 +/- 0.0 auc
+Initiating trial with seed 44
+Loaded 44 previous trials
+Parameters assigned with random search, 6 random trials remaining
+Trial results with seed 44
+{'depth': 5, 'dropout': 0.2, 'ffn_num_layers': 3, 'linked_hidden_size': 2200}
+num params: 20,009,012
+0.8239286113693365 +/- 0.0 auc
+Initiating trial with seed 45
+Loaded 45 previous trials
+Parameters assigned with random search, 5 random trials remaining
+Trial results with seed 45
+{'depth': 6, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 800}
+num params: 2,155,212
+0.8329811726525095 +/- 0.0 auc
+Initiating trial with seed 46
+Loaded 46 previous trials
+Parameters assigned with random search, 4 random trials remaining
+Trial results with seed 46
+{'depth': 5, 'dropout': 0.1, 'ffn_num_layers': 2, 'linked_hidden_size': 1000}
+num params: 3,294,012
+0.8322716848088879 +/- 0.0 auc
+Initiating trial with seed 47
+Loaded 47 previous trials
+Parameters assigned with random search, 3 random trials remaining
+Trial results with seed 47
+{'depth': 3, 'dropout': 0.30000000000000004, 'ffn_num_layers': 1, 'linked_hidden_size': 2200}
+num params: 10,324,612
+0.8038758938041982 +/- 0.0 auc
+Initiating trial with seed 48
+Loaded 48 previous trials
+Parameters assigned with random search, 2 random trials remaining
+Trial results with seed 48
+{'depth': 4, 'dropout': 0.1, 'ffn_num_layers': 3, 'linked_hidden_size': 300}
+num params: 448,512
+0.8205635215347152 +/- 0.0 auc
+Initiating trial with seed 49
+Loaded 49 previous trials
+Parameters assigned with random search, 1 random trials remaining
+Trial results with seed 49
+{'depth': 2, 'dropout': 0.05, 'ffn_num_layers': 3, 'linked_hidden_size': 1400}
+num params: 8,253,012
+0.8237430943300762 +/- 0.0 auc
+Initiating trial with seed 50
+Loaded 50 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 50
+{'depth': 6, 'dropout': 0.0, 'ffn_num_layers': 3, 'linked_hidden_size': 400}
+num params: 758,012
+0.8309396682903841 +/- 0.0 auc
+Initiating trial with seed 51
+Loaded 51 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 51
+{'depth': 6, 'dropout': 0.0, 'ffn_num_layers': 3, 'linked_hidden_size': 600}
+num params: 1,617,012
+0.8238115860395919 +/- 0.0 auc
+Initiating trial with seed 52
+Loaded 52 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 52
+{'depth': 6, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 500}
+num params: 1,147,512
+0.8323605509146245 +/- 0.0 auc
+Initiating trial with seed 53
+Loaded 53 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 53
+{'depth': 6, 'dropout': 0.4, 'ffn_num_layers': 3, 'linked_hidden_size': 500}
+num params: 1,147,512
+0.8193612289766458 +/- 0.0 auc
+Initiating trial with seed 54
+Loaded 54 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 54
+{'depth': 6, 'dropout': 0.1, 'ffn_num_layers': 3, 'linked_hidden_size': 1000}
+num params: 4,295,012
+0.825925108374574 +/- 0.0 auc
+Initiating trial with seed 55
+Loaded 55 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 55
+{'depth': 6, 'dropout': 0.0, 'ffn_num_layers': 3, 'linked_hidden_size': 2400}
+num params: 23,748,012
+0.812542098827406 +/- 0.0 auc
+Initiating trial with seed 56
+Loaded 56 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 56
+{'depth': 6, 'dropout': 0.30000000000000004, 'ffn_num_layers': 3, 'linked_hidden_size': 1100}
+num params: 5,164,512
+0.8261205737859791 +/- 0.0 auc
+Initiating trial with seed 57
+Loaded 57 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 57
+{'depth': 6, 'dropout': 0.1, 'ffn_num_layers': 3, 'linked_hidden_size': 500}
+num params: 1,147,512
+0.8182548575058014 +/- 0.0 auc
+Initiating trial with seed 58
+Loaded 58 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 58
+{'depth': 5, 'dropout': 0.30000000000000004, 'ffn_num_layers': 3, 'linked_hidden_size': 1300}
+num params: 7,143,512
+0.8333385698718656 +/- 0.0 auc
+Initiating trial with seed 59
+Loaded 59 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 59
+{'depth': 6, 'dropout': 0.15000000000000002, 'ffn_num_layers': 1, 'linked_hidden_size': 900}
+num params: 1,883,712
+0.821169625780886 +/- 0.0 auc
+Initiating trial with seed 60
+Loaded 60 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 60
+{'depth': 5, 'dropout': 0.4, 'ffn_num_layers': 3, 'linked_hidden_size': 700}
+num params: 2,166,512
+0.8192285758433971 +/- 0.0 auc
+Initiating trial with seed 61
+Loaded 61 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 61
+{'depth': 6, 'dropout': 0.05, 'ffn_num_layers': 1, 'linked_hidden_size': 1000}
+num params: 2,293,012
+0.8168894419346877 +/- 0.0 auc
+Initiating trial with seed 62
+Loaded 62 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 62
+{'depth': 5, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 1100}
+num params: 5,164,512
+0.8250538558513644 +/- 0.0 auc
+Initiating trial with seed 63
+Loaded 63 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 63
+{'depth': 6, 'dropout': 0.30000000000000004, 'ffn_num_layers': 1, 'linked_hidden_size': 600}
+num params: 895,812
+0.8111756984564348 +/- 0.0 auc
+Initiating trial with seed 64
+Loaded 64 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 64
+{'depth': 5, 'dropout': 0.1, 'ffn_num_layers': 3, 'linked_hidden_size': 1800}
+num params: 13,491,012
+0.8323511574267544 +/- 0.0 auc
+Initiating trial with seed 65
+Loaded 65 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 65
+{'depth': 2, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 900}
+num params: 2,694,612
+0.8096190109768808 +/- 0.0 auc
+Initiating trial with seed 66
+Loaded 66 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 66
+{'depth': 3, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1200}
+num params: 4,672,812
+0.8322197773624741 +/- 0.0 auc
+Initiating trial with seed 67
+Loaded 67 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 67
+{'depth': 4, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 700}
+num params: 1,675,812
+0.8343003346447416 +/- 0.0 auc
+Initiating trial with seed 68
+Loaded 68 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 68
+{'depth': 3, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 900}
+num params: 2,694,612
+0.8140273449415765 +/- 0.0 auc
+Initiating trial with seed 69
+Loaded 69 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 69
+{'depth': 2, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1300}
+num params: 5,452,212
+0.8139369696048565 +/- 0.0 auc
+Initiating trial with seed 70
+Loaded 70 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 70
+{'depth': 4, 'dropout': 0.4, 'ffn_num_layers': 2, 'linked_hidden_size': 400}
+num params: 597,612
+0.8069662242413872 +/- 0.0 auc
+Initiating trial with seed 71
+Loaded 71 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 71
+{'depth': 3, 'dropout': 0.05, 'ffn_num_layers': 1, 'linked_hidden_size': 1100}
+num params: 2,742,312
+0.8107665531844109 +/- 0.0 auc
+Initiating trial with seed 72
+Loaded 72 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 72
+{'depth': 2, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 300}
+num params: 358,212
+0.8086134227420252 +/- 0.0 auc
+Initiating trial with seed 73
+Loaded 73 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 73
+{'depth': 4, 'dropout': 0.1, 'ffn_num_layers': 2, 'linked_hidden_size': 1000}
+num params: 3,294,012
+0.8328780233696137 +/- 0.0 auc
+Initiating trial with seed 74
+Loaded 74 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 74
+{'depth': 5, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 1500}
+num params: 7,191,012
+0.8291069415840523 +/- 0.0 auc
+Initiating trial with seed 75
+Loaded 75 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 75
+{'depth': 4, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 900}
+num params: 2,694,612
+0.828042947481422 +/- 0.0 auc
+Initiating trial with seed 76
+Loaded 76 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 76
+{'depth': 3, 'dropout': 0.30000000000000004, 'ffn_num_layers': 1, 'linked_hidden_size': 800}
+num params: 1,514,412
+0.7974451771962188 +/- 0.0 auc
+Initiating trial with seed 77
+Loaded 77 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 77
+{'depth': 5, 'dropout': 0.35000000000000003, 'ffn_num_layers': 1, 'linked_hidden_size': 600}
+num params: 895,812
+0.8177773186735985 +/- 0.0 auc
+Initiating trial with seed 78
+Loaded 78 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 78
+{'depth': 3, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1200}
+num params: 4,672,812
+0.8367939147127994 +/- 0.0 auc
+Initiating trial with seed 79
+Loaded 79 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 79
+{'depth': 2, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1200}
+num params: 4,672,812
+0.8146713746284039 +/- 0.0 auc
+Initiating trial with seed 80
+Loaded 80 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 80
+{'depth': 4, 'dropout': 0.05, 'ffn_num_layers': 2, 'linked_hidden_size': 1500}
+num params: 7,191,012
+0.8237896858307373 +/- 0.0 auc
+Initiating trial with seed 81
+Loaded 81 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 81
+{'depth': 5, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 1700}
+num params: 12,061,512
+0.8176714331265104 +/- 0.0 auc
+Initiating trial with seed 82
+Loaded 82 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 82
+{'depth': 6, 'dropout': 0.1, 'ffn_num_layers': 2, 'linked_hidden_size': 1300}
+num params: 5,452,212
+0.8290569631442307 +/- 0.0 auc
+Initiating trial with seed 83
+Loaded 83 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 83
+{'depth': 5, 'dropout': 0.1, 'ffn_num_layers': 1, 'linked_hidden_size': 1400}
+num params: 4,330,212
+0.8275268413355782 +/- 0.0 auc
+Initiating trial with seed 84
+Loaded 84 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 84
+{'depth': 2, 'dropout': 0.2, 'ffn_num_layers': 3, 'linked_hidden_size': 500}
+num params: 1,147,512
+0.8033956402099189 +/- 0.0 auc
+Initiating trial with seed 85
+Loaded 85 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 85
+{'depth': 3, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1800}
+num params: 10,249,212
+0.8188969966131192 +/- 0.0 auc
+Initiating trial with seed 86
+Loaded 86 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 86
+{'depth': 6, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 1100}
+num params: 3,953,412
+0.8208711048232264 +/- 0.0 auc
+Initiating trial with seed 87
+Loaded 87 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 87
+{'depth': 4, 'dropout': 0.25, 'ffn_num_layers': 3, 'linked_hidden_size': 700}
+num params: 2,166,512
+0.8291122122514926 +/- 0.0 auc
+Initiating trial with seed 88
+Loaded 88 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 88
+{'depth': 5, 'dropout': 0.0, 'ffn_num_layers': 1, 'linked_hidden_size': 1500}
+num params: 4,939,512
+0.8194775913888487 +/- 0.0 auc
+Initiating trial with seed 89
+Loaded 89 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 89
+{'depth': 6, 'dropout': 0.15000000000000002, 'ffn_num_layers': 2, 'linked_hidden_size': 1200}
+num params: 4,672,812
+0.8234112295183206 +/- 0.0 auc
+Initiating trial with seed 90
+Loaded 90 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 90
+{'depth': 3, 'dropout': 0.1, 'ffn_num_layers': 3, 'linked_hidden_size': 1000}
+num params: 4,295,012
+0.8329869359726927 +/- 0.0 auc
+Initiating trial with seed 91
+Loaded 91 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 91
+{'depth': 4, 'dropout': 0.05, 'ffn_num_layers': 1, 'linked_hidden_size': 2400}
+num params: 12,223,212
+0.8170429136966707 +/- 0.0 auc
+Initiating trial with seed 92
+Loaded 92 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 92
+{'depth': 6, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 1600}
+num params: 8,150,412
+0.8310463683615338 +/- 0.0 auc
+Initiating trial with seed 93
+Loaded 93 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 93
+{'depth': 5, 'dropout': 0.1, 'ffn_num_layers': 3, 'linked_hidden_size': 1400}
+num params: 8,253,012
+0.8191069117942408 +/- 0.0 auc
+Initiating trial with seed 94
+Loaded 94 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 94
+{'depth': 2, 'dropout': 0.25, 'ffn_num_layers': 2, 'linked_hidden_size': 400}
+num params: 597,612
+0.8137760105685814 +/- 0.0 auc
+Initiating trial with seed 95
+Loaded 95 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 95
+{'depth': 6, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 2100}
+num params: 18,259,512
+0.8245062949986899 +/- 0.0 auc
+Initiating trial with seed 96
+Loaded 96 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 96
+{'depth': 4, 'dropout': 0.2, 'ffn_num_layers': 2, 'linked_hidden_size': 800}
+num params: 2,155,212
+0.8303890338744188 +/- 0.0 auc
+Initiating trial with seed 97
+Loaded 97 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 97
+{'depth': 3, 'dropout': 0.30000000000000004, 'ffn_num_layers': 1, 'linked_hidden_size': 1300}
+num params: 3,760,912
+0.8005893617835746 +/- 0.0 auc
+Initiating trial with seed 98
+Loaded 98 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 98
+{'depth': 5, 'dropout': 0.15000000000000002, 'ffn_num_layers': 3, 'linked_hidden_size': 700}
+num params: 2,166,512
+0.8292280063636426 +/- 0.0 auc
+Initiating trial with seed 99
+Loaded 99 previous trials
+Parameters assigned with TPE directed search
+Trial results with seed 99
+{'depth': 5, 'dropout': 0.0, 'ffn_num_layers': 2, 'linked_hidden_size': 1100}
+num params: 3,953,412
+0.8252112047378762 +/- 0.0 auc
+Best trial, with seed 26
+{'depth': 6, 'dropout': 0.35000000000000003, 'ffn_num_layers': 2, 'linked_hidden_size': 1000}
+num params: 3,294,012
+0.8376101473572964 +/- 0.0 auc
+Elapsed time = 16:45:20
