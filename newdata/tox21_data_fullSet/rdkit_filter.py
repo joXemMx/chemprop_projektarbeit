@@ -25,3 +25,8 @@ mols['ROMol'] = mols.apply(lambda x: remover.StripMol(x['ROMol']), axis=1)
 mols['ROMol'] = mols.apply(lambda x: Chem.MolToSmiles(x['ROMol']), axis=1)
 # to get no explicit aromatic rings but kekulized mols, use:
 # mols['ROMol'] = mols.apply(lambda x: Chem.MolToSmiles(x['ROMol'], kekuleSmiles=True), axis=1)
+
+# save
+mols = mols.drop('SMILES', axis=1)
+mols = mols.rename(columns={'ROMol': 'smiles'})
+mols.to_csv("tox21_complete.csv", index=False)
