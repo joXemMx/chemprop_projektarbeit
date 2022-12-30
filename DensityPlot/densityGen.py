@@ -34,6 +34,9 @@ print(len(arr_False))
 # sns.distplot(df["NR-ER"], rug=True, norm_hist=False,kde=True)
 # sns.displot([arr_True,arr_False],kind="kde", legend=False,kernel='epa')
 # sns.displot([arr_False],kind="kde")
+#test this comman:
+sns.fit_parametric_binned([arr_True,arr_False], dist="epa")
+# ####
 sns.kdeplot([arr_True,arr_False], fill=False, linewidth=1)
 plt.legend(loc='upper right', labels=['correct Hits', 'incorrect Hits'],kernel='epa')
 # Create a density plot
