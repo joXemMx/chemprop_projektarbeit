@@ -37,7 +37,7 @@ for label in labels:
     plot = sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value")
     leg = plt.legend(title=label,loc='upper right', labels=['hit', 'no hit'])
     leg.get_frame().set_linewidth(0.0)
-    # plt.ylim(0, 10)
+    plt.ylim(0, 10)
     plt.show()
 
 
