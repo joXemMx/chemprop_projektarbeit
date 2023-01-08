@@ -1,4 +1,4 @@
-## check if tox21 datasets of ToxPredProjekt and chemprop are really equal
+## check if tox21 datasets of GraphTrans and Chemprop are really equal
 import pandas as pd
 
 tpp_data = pd.read_csv('/beegfs/lo63tor/graphtrans/data/ogbg_moltox21/mapping/mol.csv.gz', compression='gzip').drop(columns=['mol_id'])
