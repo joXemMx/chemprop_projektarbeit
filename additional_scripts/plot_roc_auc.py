@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import pandas as pd
 import math
@@ -5,11 +6,15 @@ import matplotlib.pyplot as plt
 from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.preprocessing import MultiLabelBinarizer
-model = './tox21_checkpoints/standard_set/D-MPNN_randomSplit/'
 
-act = pd.read_csv(model+'/fold_0/test_full.csv')
+act = pd.read_csv(sys.argv[1])
 act = act[list(act)[1:]]
-preds = pd.read_csv(model + 'fold_0/test_preds.csv')
+
+# model has to be specified as the directory the model is in
+# i.e. "tox21_checkpoints/standard_set/D-MPNN_base"
+model = str(sys.argv[2])
+
+preds = pd.read_csv(model + '/fold_0/test_preds.csv')
 preds = preds[list(preds)[1:]]
 
 #score_roc_auc = roc_auc_score(act,preds)
@@ -94,4 +99,4 @@ plt.xlabel("False Positive Rate")
 plt.ylabel("True Positive Rate")
 plt.legend(loc="lower right")
 plt.show()
-plt.savefig(model+'auc_plot.png')
+plt.savefig(model+'/auc_plot.png')
