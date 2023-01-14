@@ -1,0 +1,340 @@
+Command line
+python /home/vo87poq/chemprop_projektarbeit/train.py --features_generator rdkit_2d --gpu 0 --data_path /home/vo87poq/chemprop_projektarbeit/newdata/tox21_data_full/tox21_full_desalted_grouped_nans.csv --dataset_type classification --split_type scaffold_balanced --save_dir /home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/full_set/D-MPNN_rdkit_2d --quiet --save_preds
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': '/home/vo87poq/chemprop_projektarbeit/newdata/tox21_data_full/tox21_full_desalted_grouped_nans.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 3,
+ 'depth_solvent': 3,
+ 'device': device(type='cuda', index=0),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': True,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': 0,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': False,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 12,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': True,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': '/home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/full_set/D-MPNN_rdkit_2d',
+ 'save_preds': True,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['smiles'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'scaffold_balanced',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['NR-AR',
+                'NR-AR-LBD',
+                'NR-AhR',
+                'NR-Aromatase',
+                'NR-ER',
+                'NR-ER-LBD',
+                'NR-PPAR-gamma',
+                'SR-ARE',
+                'SR-ATAD5',
+                'SR-HSE',
+                'SR-MMP',
+                'SR-p53'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Number of tasks = 12
+Fold 0
+Splitting data with seed 0
+Total scaffolds = 2,637 | train scaffolds = 1,748 | val scaffolds = 546 | test scaffolds = 343
+Label averages per scaffold, in decreasing order of scaffold frequency,capped at 10 scaffolds and 20 labels:
+Scaffold 0
+Task 0: count = 1,821 | target average = 0.006041
+Task 1: count = 1,780 | target average = 0.010674
+Task 2: count = 1,754 | target average = 0.009692
+Task 3: count = 1,658 | target average = 0.010253
+Task 4: count = 1,646 | target average = 0.042527
+Task 5: count = 1,794 | target average = 0.015050
+Task 6: count = 1,772 | target average = 0.019752
+Task 7: count = 1,639 | target average = 0.086638
+Task 8: count = 1,829 | target average = 0.018043
+Task 9: count = 1,734 | target average = 0.038639
+Task 10: count = 1,603 | target average = 0.033063
+Task 11: count = 1,791 | target average = 0.019542
+
+
+Scaffold 1
+Task 0: count = 1,473 | target average = 0.010183
+Task 1: count = 1,410 | target average = 0.012057
+Task 2: count = 1,335 | target average = 0.116105
+Task 3: count = 1,234 | target average = 0.021070
+Task 4: count = 1,277 | target average = 0.086922
+Task 5: count = 1,447 | target average = 0.031099
+Task 6: count = 1,399 | target average = 0.018585
+Task 7: count = 1,317 | target average = 0.110858
+Task 8: count = 1,463 | target average = 0.021873
+Task 9: count = 1,438 | target average = 0.036857
+Task 10: count = 1,259 | target average = 0.154885
+Task 11: count = 1,433 | target average = 0.037683
+
+
+Scaffold 2
+Task 0: count = 85 | target average = 0.000000
+Task 1: count = 86 | target average = 0.000000
+Task 2: count = 81 | target average = 0.123457
+Task 3: count = 82 | target average = 0.036585
+Task 4: count = 78 | target average = 0.012821
+Task 5: count = 89 | target average = 0.044944
+Task 6: count = 85 | target average = 0.000000
+Task 7: count = 85 | target average = 0.082353
+Task 8: count = 87 | target average = 0.022989
+Task 9: count = 87 | target average = 0.011494
+Task 10: count = 81 | target average = 0.074074
+Task 11: count = 88 | target average = 0.011364
+
+
+Scaffold 3
+Task 0: count = 80 | target average = 0.000000
+Task 1: count = 71 | target average = 0.000000
+Task 2: count = 70 | target average = 0.085714
+Task 3: count = 52 | target average = 0.038462
+Task 4: count = 62 | target average = 0.306452
+Task 5: count = 67 | target average = 0.208955
+Task 6: count = 58 | target average = 0.051724
+Task 7: count = 53 | target average = 0.264151
+Task 8: count = 76 | target average = 0.000000
+Task 9: count = 68 | target average = 0.117647
+Task 10: count = 61 | target average = 0.590164
+Task 11: count = 61 | target average = 0.147541
+
+
+Scaffold 4
+Task 0: count = 68 | target average = 0.000000
+Task 1: count = 66 | target average = 0.000000
+Task 2: count = 58 | target average = 0.344828
+Task 3: count = 54 | target average = 0.037037
+Task 4: count = 57 | target average = 0.105263
+Task 5: count = 68 | target average = 0.014706
+Task 6: count = 63 | target average = 0.047619
+Task 7: count = 59 | target average = 0.220339
+Task 8: count = 68 | target average = 0.014706
+Task 9: count = 65 | target average = 0.030769
+Task 10: count = 57 | target average = 0.140351
+Task 11: count = 66 | target average = 0.030303
+
+
+Scaffold 5
+Task 0: count = 63 | target average = 0.000000
+Task 1: count = 50 | target average = 0.000000
+Task 2: count = 54 | target average = 0.000000
+Task 3: count = 62 | target average = 0.322581
+Task 4: count = 37 | target average = 0.054054
+Task 5: count = 45 | target average = 0.000000
+Task 6: count = 49 | target average = 0.000000
+Task 7: count = 55 | target average = 0.454545
+Task 8: count = 50 | target average = 0.000000
+Task 9: count = 51 | target average = 0.039216
+Task 10: count = 43 | target average = 0.325581
+Task 11: count = 41 | target average = 0.000000
+
+
+Scaffold 6
+Task 0: count = 61 | target average = 0.016393
+Task 1: count = 61 | target average = 0.000000
+Task 2: count = 60 | target average = 0.000000
+Task 3: count = 59 | target average = 0.000000
+Task 4: count = 56 | target average = 0.035714
+Task 5: count = 60 | target average = 0.000000
+Task 6: count = 60 | target average = 0.000000
+Task 7: count = 54 | target average = 0.037037
+Task 8: count = 61 | target average = 0.000000
+Task 9: count = 55 | target average = 0.000000
+Task 10: count = 52 | target average = 0.019231
+Task 11: count = 60 | target average = 0.016667
+
+
+Scaffold 7
+Task 0: count = 48 | target average = 0.020833
+Task 1: count = 44 | target average = 0.000000
+Task 2: count = 41 | target average = 0.219512
+Task 3: count = 33 | target average = 0.212121
+Task 4: count = 31 | target average = 0.225806
+Task 5: count = 41 | target average = 0.048780
+Task 6: count = 42 | target average = 0.047619
+Task 7: count = 39 | target average = 0.205128
+Task 8: count = 48 | target average = 0.020833
+Task 9: count = 43 | target average = 0.046512
+Task 10: count = 36 | target average = 0.416667
+Task 11: count = 44 | target average = 0.068182
+
+
+Scaffold 8
+Task 0: count = 42 | target average = 0.047619
+Task 1: count = 41 | target average = 0.000000
+Task 2: count = 39 | target average = 0.333333
+Task 3: count = 35 | target average = 0.114286
+Task 4: count = 38 | target average = 0.236842
+Task 5: count = 41 | target average = 0.146341
+Task 6: count = 38 | target average = 0.105263
+Task 7: count = 39 | target average = 0.256410
+Task 8: count = 36 | target average = 0.055556
+Task 9: count = 43 | target average = 0.023256
+Task 10: count = 29 | target average = 0.310345
+Task 11: count = 42 | target average = 0.071429
+
+
+Scaffold 9
+Task 0: count = 32 | target average = 1.000000
+Task 1: count = 33 | target average = 0.969697
+Task 2: count = 31 | target average = 0.000000
+Task 3: count = 10 | target average = 0.000000
+Task 4: count = 25 | target average = 0.800000
+Task 5: count = 28 | target average = 0.464286
+Task 6: count = 31 | target average = 0.000000
+Task 7: count = 22 | target average = 0.318182
+Task 8: count = 33 | target average = 0.000000
+Task 9: count = 32 | target average = 0.031250
+Task 10: count = 31 | target average = 0.064516
+Task 11: count = 32 | target average = 0.000000
+
+
+Class sizes
+NR-AR 0: 96.72%, 1: 3.28%
+NR-AR-LBD 0: 97.01%, 1: 2.99%
+NR-AhR 0: 88.78%, 1: 11.22%
+NR-Aromatase 0: 94.95%, 1: 5.05%
+NR-ER 0: 89.46%, 1: 10.54%
+NR-ER-LBD 0: 95.89%, 1: 4.11%
+NR-PPAR-gamma 0: 97.02%, 1: 2.98%
+SR-ARE 0: 84.17%, 1: 15.83%
+SR-ATAD5 0: 96.16%, 1: 3.84%
+SR-HSE 0: 95.03%, 1: 4.97%
+SR-MMP 0: 85.07%, 1: 14.93%
+SR-p53 0: 93.78%, 1: 6.22%
+Total size = 8,695 | train size = 6,956 | val size = 869 | test size = 870
+Building model 0
+MoleculeModel(
+  (sigmoid): Sigmoid()
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.0, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+  )
+  (ffn): Sequential(
+    (0): Dropout(p=0.0, inplace=False)
+    (1): Linear(in_features=500, out_features=300, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.0, inplace=False)
+    (4): Linear(in_features=300, out_features=12, bias=True)
+  )
+)
+Number of parameters = 418,512
+Moving model to cuda
+Epoch 0
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 1.3561e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 1.6799e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 2.0036e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 2.3273e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 2.6511e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 2.9748e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 3.2986e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 3.6223e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 3.9460e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 4.2698e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 4.5935e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 4.9173e-04
+Loss = nan, PNorm = nan, GNorm = nan, lr_0 = 5.2410e-04
