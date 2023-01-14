@@ -7,8 +7,13 @@ from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.preprocessing import MultiLabelBinarizer
 
-# example call to plot the ROC-AUC of the D-MPNN_base model (assuming your current directory is `additional_scripts`)
-# python plot_roc_auc.py ../newdata/tox21_split_chemprop/test_full.csv ../tox21_checkpoints/standard_set/D-MPNN_base
+## example call to plot the ROC-AUC of the D-MPNN_base model (assuming your current directory is `additional_scripts`)
+## python plot_roc_auc.py ../newdata/tox21_split_chemprop/test_full.csv ../tox21_checkpoints/standard_set/D-MPNN_base
+
+## to get all the plots (with the same name) from your model directories to a sinlge folder, run this nice and simple line:
+## find tox21_checkpoints/ -name '*.png' -exec sh -c 'cp "$1" "auc_plots/$(basename $(dirname $(dirname "$1")) )_$(basename $(dirname "$1"))_auc_plot.png"' _ {} \; 
+## this will copy all auc plots from the checkpoints directory to the auc_plots folder and name them in this fashion:
+## The plot in ``tox21_checkpoints/full_set/D-MPNN_base/auc_plot.png`` will be named ``full_set_D-MPNN_base_auc_plot.png``
 
 # GraphTrans Process
 # model = ('./GraphTransRes/')
