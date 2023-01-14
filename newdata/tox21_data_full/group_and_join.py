@@ -51,5 +51,5 @@ agg_df.insert(0, 'smiles', first_column)
 first_column = agg_nan_df.pop('smiles')
 agg_nan_df.insert(0, 'smiles', first_column)
 
-agg_df.to_csv(str(sys.argv[2])+'_regression.csv', index=False)
-agg_nan_df.to_csv(str(sys.argv[2])+'_classification.csv', index=False)
+agg_df.to_csv(str(sys.argv[2])+'_means.csv', index=False)
+agg_nan_df.to_csv(str(sys.argv[2])+'_nans.csv', index=False)
