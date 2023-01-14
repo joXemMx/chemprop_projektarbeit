@@ -13,8 +13,8 @@ from sklearn.preprocessing import MultiLabelBinarizer
 # GraphTrans Process
 # model = ('./GraphTransRes/')
 # splits = ['chemSplit/','OGBSplit/', 'rndSplit/']
-# models = ['def_OGBSplit','b50_OGBSplit','dev_gcn','chemsplit_chempropSplit','chemsplit-b50_chempropSplit','rndSplit_80_10_10_randomSplit','rndSplit-b50_80_10_10_randomSplit']
-# act = pd.read_csv(model+splits[1] + models[0] + '_result_test.csv')
+# models = ['chemsplit_chempropSplit','chemsplit-b50_chempropSplit','def_OGBSplit','b50_OGBSplit','dev_gcn','rndSplit_80_10_10_randomSplit','rndSplit-b50_80_10_10_randomSplit']
+# act = pd.read_csv(model+splits[0] + models[0] + '_result_test.csv')
 # act = act[list(act)[0:]]
 # preds = pd.read_csv(model+splits[0]+ models[0] + '_result_pred.csv')
 # preds = preds[list(preds)[0:]]
@@ -24,14 +24,16 @@ from sklearn.preprocessing import MultiLabelBinarizer
 
 
 act = pd.read_csv(sys.argv[1])
-act = act[list(act)[1:]]
+if (len(act.columns) != 12):
+    act = act[list(act)[1:]]
 
 # model has to be specified as the directory the model is in
 # i.e. "tox21_checkpoints/standard_set/D-MPNN_base"
 model = str(sys.argv[2])
 
 preds = pd.read_csv(model + '/fold_0/test_preds.csv')
-preds = preds[list(preds)[1:]]
+if (len(preds.columns) != 12):
+    preds = preds[list(preds)[1:]]
 
 #score_roc_auc = roc_auc_score(act,preds)
 
