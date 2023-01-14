@@ -14,7 +14,6 @@ testSet_df = df2
 labels = testSet_df.columns.to_list()
 predSet_df = df1[labels].astype("float")
 res = testSet_df.compare(predSet_df, keep_shape=True, keep_equal=True, result_names=("Real Value","Prediction"))
-
 for label in labels:
     zero_arr = np.zeros(len(res[label,"Real Value"]))
     ind = 0
@@ -32,13 +31,12 @@ for label in labels:
     
     print("roc:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])]))
     print("roc with zero:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])],zero_arr[~np.isnan(res[label,"Real Value"])]))
-    # displot(data=res[label],kde=True,x="Prediction", hue="Real Value", palette="Set2");
-    # plt.show()
     plot = sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value")
-    leg = plt.legend(title=label,loc='upper right', labels=['hit', 'no hit'])
+    leg = plt.legend(title=label,loc='upper right', labels=['toxic','not toxic'])
     leg.get_frame().set_linewidth(0.0)
-    plt.ylim(0, 10)
+    # plt.ylim(0, 14)
     plt.show()
+
 
 
     # df = pd.DataFrame([x,y]).transpose()
