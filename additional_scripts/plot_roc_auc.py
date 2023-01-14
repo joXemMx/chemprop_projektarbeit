@@ -27,18 +27,24 @@ from sklearn.preprocessing import MultiLabelBinarizer
 
 ###########################
 
-
+# act should be path including the csv
 act = pd.read_csv(sys.argv[1])
-if (len(act.columns) != 12):
+# if og_act_len = 12
+og_act_len = len(act.columns)
+if (og_act_len != 12):
     act = act[list(act)[1:]]
 
-# model has to be specified as the directory the model is in
-# i.e. "tox21_checkpoints/standard_set/D-MPNN_base"
-model = str(sys.argv[2])
 
-preds = pd.read_csv(model + '/fold_0/test_preds.csv')
-if (len(preds.columns) != 12):
+if (og_act_len != 12):
+    # model has to be specified as the directory the model is in
+    # i.e. "tox21_checkpoints/standard_set/D-MPNN_base"
+    model = str(sys.argv[2])
+    preds = pd.read_csv(model + '/fold_0/test_preds.csv')
     preds = preds[list(preds)[1:]]
+else:
+    # pred should be path including the csv
+    pred = str(sys.argv[2])
+    preds = pd.read_csv(pred)
 
 #score_roc_auc = roc_auc_score(act,preds)
 
@@ -123,4 +129,7 @@ plt.ylabel("True Positive Rate")
 plt.legend(loc="lower right")
 plt.title(str(sys.argv[3]))
 plt.show()
-plt.savefig(model+'/auc_plot.png')
+if (og_act_len != 12):
+    plt.savefig(model+'/auc_plot.png')
+else: 
+    plt.savefig(sys.argv[4])
