@@ -22,7 +22,7 @@ mols['ROMol'] = mols.apply(lambda x: remover.StripMol(x['ROMol']), axis=1)
 # PandasTools.RemoveSaltsFromFrame(frame=mols,molCol='ROMol')
 
 # convert back to SMILES
-#mols['ROMol'] = mols.apply(lambda x: Chem.MolToSmiles(x['ROMol'], isomericSmiles=True), axis=1)
+# mols['ROMol'] = mols.apply(lambda x: Chem.MolToSmiles(x['ROMol'], isomericSmiles=True), axis=1)
 # to get no explicit aromatic rings but kekulized mols, use:
 mols['ROMol'] = mols.apply(lambda x: Chem.MolToSmiles(x['ROMol'], kekuleSmiles=True), axis=1)
 
