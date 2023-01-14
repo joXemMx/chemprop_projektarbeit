@@ -7,11 +7,12 @@ from itertools import cycle
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.preprocessing import MultiLabelBinarizer
 
+# example call to plot the ROC-AUC of the D-MPNN_base model (assuming your current directory is `additional_scripts`)
+# python plot_roc_auc.py ../newdata/tox21_split_chemprop/test_full.csv ../tox21_checkpoints/standard_set/D-MPNN_base
+
 act = pd.read_csv(sys.argv[1])
 act = act[list(act)[1:]]
 
-# model has to be specified as the directory the model is in
-# i.e. "tox21_checkpoints/standard_set/D-MPNN_base"
 model = str(sys.argv[2])
 
 preds = pd.read_csv(model + '/fold_0/test_preds.csv')
@@ -98,5 +99,6 @@ plt.ylim([0.0, 1.05])
 plt.xlabel("False Positive Rate")
 plt.ylabel("True Positive Rate")
 plt.legend(loc="lower right")
+plt.title(str(sys.argv[3]))
 plt.show()
 plt.savefig(model+'/auc_plot.png')
