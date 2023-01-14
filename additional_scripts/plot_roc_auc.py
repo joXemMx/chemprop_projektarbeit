@@ -10,6 +10,22 @@ from sklearn.preprocessing import MultiLabelBinarizer
 # example call to plot the ROC-AUC of the D-MPNN_base model (assuming your current directory is `additional_scripts`)
 # python plot_roc_auc.py ../newdata/tox21_split_chemprop/test_full.csv ../tox21_checkpoints/standard_set/D-MPNN_base
 
+# GraphTrans Process
+# model = ('./GraphTransRes/')
+# splits = ['chemSplit/','OGBSplit/', 'rndSplit/']
+# act = pd.read_csv(model+splits[0] + 'def_OGBSplit' + '_result_test.csv')
+# act = act[list(act)[0:]]
+# preds = pd.read_csv(model+splits[0]+ 'def_OGBSplit' + '_result_pred.csv')
+# preds = preds[list(preds)[0:]]
+
+
+
+
+
+###########################
+
+
+
 act = pd.read_csv(sys.argv[1])
 act = act[list(act)[1:]]
 
