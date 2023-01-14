@@ -11,13 +11,13 @@ from sklearn.preprocessing import MultiLabelBinarizer
 # python plot_roc_auc.py ../newdata/tox21_split_chemprop/test_full.csv ../tox21_checkpoints/standard_set/D-MPNN_base
 
 # GraphTrans Process
-model = ('./GraphTransRes/')
-splits = ['chemSplit/','OGBSplit/', 'rndSplit/']
-models = ['def_OGBSplit','b50_OGBSplit','dev_gcn','chemsplit_chempropSplit','chemsplit-b50_chempropSplit','rndSplit_80_10_10_randomSplit','rndSplit-b50_80_10_10_randomSplit']
-act = pd.read_csv(model+splits[1] + models[0] + '_result_test.csv')
-act = act[list(act)[0:]]
-preds = pd.read_csv(model+splits[0]+ models[0] + '_result_pred.csv')
-preds = preds[list(preds)[0:]]
+# model = ('./GraphTransRes/')
+# splits = ['chemSplit/','OGBSplit/', 'rndSplit/']
+# models = ['chemsplit_chempropSplit','chemsplit-b50_chempropSplit','def_OGBSplit','b50_OGBSplit','dev_gcn','rndSplit_80_10_10_randomSplit','rndSplit-b50_80_10_10_randomSplit']
+# act = pd.read_csv(model+splits[0] + models[0] + '_result_test.csv')
+# act = act[list(act)[0:]]
+# preds = pd.read_csv(model+splits[0]+ models[0] + '_result_pred.csv')
+# preds = preds[list(preds)[0:]]
 
 
 ###########################
@@ -29,14 +29,15 @@ preds = preds[list(preds)[0:]]
 # # i.e. "tox21_checkpoints/standard_set/D-MPNN_base"
 # model = str(sys.argv[2])
 
-
 act = pd.read_csv(sys.argv[1])
-act = act[list(act)[1:]]
+if (len(act.columns) != 12):
+    act = act[list(act)[1:]]
 
 model = str(sys.argv[2])
 
 preds = pd.read_csv(model + '/fold_0/test_preds.csv')
-preds = preds[list(preds)[1:]]
+if (len(preds.columns) != 12):
+    preds = preds[list(preds)[1:]]
 
 
 #score_roc_auc = roc_auc_score(act,preds)
