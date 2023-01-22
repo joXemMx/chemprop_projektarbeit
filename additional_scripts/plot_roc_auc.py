@@ -128,8 +128,9 @@ plt.xlabel("False Positive Rate")
 plt.ylabel("True Positive Rate")
 plt.legend(loc="lower right")
 plt.title(str(sys.argv[3]))
-plt.show()
+
 if (og_act_len != 12):
     plt.savefig(model+'/auc_plot.png')
 else: 
     plt.savefig(sys.argv[4])
+plt.show()
