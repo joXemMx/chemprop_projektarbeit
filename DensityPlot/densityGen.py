@@ -1,22 +1,38 @@
 import seaborn as sns
+import sys
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from sklearn.metrics import roc_auc_score
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
 
-# Input
-split = ["chemSplit","OGBSplit","rndSplit"]
-path = ["chemsplit_chempropSplit","chemsplit-b50_chempropSplit","b50_OGBSplit","def_OGBSplit"]
-chosenSplit = split[1]
-chosenPath = path[3]
-df1 = pd.read_csv('../additional_scripts\GraphTransRes/'+chosenSplit+'/'+ chosenPath + '_result_pred.csv')
-df2 = pd.read_csv('../additional_scripts\GraphTransRes/'+chosenSplit+'/'+ chosenPath + '_result_test.csv')
+# GraphTrans Input
+# split = ["chemSplit","OGBSplit","rndSplit"]
+# path = ["chemsplit_chempropSplit","chemsplit-b50_chempropSplit","b50_OGBSplit","def_OGBSplit"]
+# chosenSplit = split[1]
+# chosenPath = path[3]
+
+# df1 = pd.read_csv('../additional_scripts\GraphTransRes/'+chosenSplit+'/'+ chosenPath + '_result_pred.csv')
+# df2 = pd.read_csv('../additional_scripts\GraphTransRes/'+chosenSplit+'/'+ chosenPath + '_result_test.csv')
+# labels ziehen
+labels = ['NR-AhR', 'NR-AR', 'NR-AR-LBD', 'NR-Aromatase', 'NR-ER', 'NR-ER-LBD', 'NR-PPAR-gamma', 'SR-ARE', 'SR-ATAD5', 'SR-HSE', 'SR-MMP', 'SR-p53']
+# Chem Input
+df1 = pd.read_csv('../tox21_checkpoints\standard_set\D-MPNN_base/test_preds.csv')
+df2 = pd.read_csv('../newdata/tox21_split_chemprop/test_full.csv')
 
 
-testSet_df = df2
-labels = testSet_df.columns.to_list()
+# usage: python densityGen.py ../tox21_checkpoints\standard_set\D-MPNN_base/test_preds.csv ../newdata/tox21_split_chemprop/test_full.csv Name
+# df1 = pd.read_csv(sys.argv[0])
+# df2 = pd.read_csv(sys.argv[1])
+
+zoom_on = False
+# Wenn du mit sysArg machen willst
+# name = sys.argv[2]
+name = "xx"
+
+
 predSet_df = df1[labels].astype("float")
+testSet_df = df2[labels].astype("float")
 res = testSet_df.compare(predSet_df, keep_shape=True, keep_equal=True, result_names=("Real Value","Prediction"))
 for label in labels:
     fig, ax = plt.subplots()
@@ -40,32 +56,15 @@ for label in labels:
     leg = plt.legend(title=label,loc='upper right', labels=['toxic','not toxic'])
     leg.get_frame().set_linewidth(0.0)
 
-
-    axins = zoomed_inset_axes(ax, 4, loc='center right', borderpad=5)
-    mark_inset(ax, axins, loc1=3, loc2=4, fc="none", ec="0.5")
-    axins.set_xlim([0.04,0.055])
-    axins.set_ylim([0,25])
-    
-    sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=axins)
-    axins.set(ylabel=None, xlabel=None, yticklabels=[])
-    axins.xaxis.tick_top()
-    axins.legend().remove()
-    # ax2 = plt.axes([0.6, 0.2, .5, .5])
-    # sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=ax2,axes=False)
-    # ax2.set_title('zoom')
-    # ax2.set_xlim([0.05,0.2])
-    # ax2.set_ylim([0,14])
-    # axins = zoomed_inset_axes(plot, zoom=4, loc=5)
-    # axins.plot(ax=ax[1])
-    # axins.set_xlim(0,1)
-    # axins.set_ylim(0, 14)
-    # axins.plot(data)
-    plt.savefig(chosenPath + "_" +  label)
+    if zoom_on:
+        axins = zoomed_inset_axes(ax, 4, loc='center right', borderpad=5)
+        mark_inset(ax, axins, loc1=3, loc2=4, fc="none", ec="0.5")
+        axins.set_xlim([0.04,0.055])
+        axins.set_ylim([0,25])
+        
+        sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=axins)
+        axins.set(ylabel=None, xlabel=None, yticklabels=[])
+        axins.xaxis.tick_top()
+        axins.legend().remove()
+    plt.savefig(name + "_" +  label)
     plt.show()
-
-    # df = pd.DataFrame([x,y]).transpose()
-    # df = df.rename(columns={0: "hit", 1: "no hit"})
-    # df = df.sort_values(by=['hit'], ascending=False)
-    # # df.columns.values[0] = "hit"
-    # # df.columns.values[1] = "no hit"
-    # print(df.head())
