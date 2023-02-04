@@ -3,7 +3,7 @@ import sys
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, roc_curve, auc
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
 
 # GraphTrans Input
@@ -17,8 +17,8 @@ from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
 # labels ziehen
 labels = ['NR-AhR', 'NR-AR', 'NR-AR-LBD', 'NR-Aromatase', 'NR-ER', 'NR-ER-LBD', 'NR-PPAR-gamma', 'SR-ARE', 'SR-ATAD5', 'SR-HSE', 'SR-MMP', 'SR-p53']
 # Chem Input
-df1 = pd.read_csv('../tox21_checkpoints\standard_set\D-MPNN_base/test_preds.csv')
-df2 = pd.read_csv('../newdata/tox21_split_chemprop/test_full.csv')
+df1 = pd.read_csv('../tox21_checkpoints/full_set/opt_D-MPNN_rdkit_2d_normalized/test_preds.csv')
+df2 = pd.read_csv('../newdata/tox21_split_full/test_full.csv')
 
 
 # usage: python densityGen.py ../tox21_checkpoints\standard_set\D-MPNN_base/test_preds.csv ../newdata/tox21_split_chemprop/test_full.csv Name
@@ -28,7 +28,7 @@ df2 = pd.read_csv('../newdata/tox21_split_chemprop/test_full.csv')
 zoom_on = False
 # Wenn du mit sysArg machen willst
 # name = sys.argv[2]
-name = "xx"
+name = "density"
 
 
 predSet_df = df1[labels].astype("float")
@@ -72,10 +72,26 @@ for label in labels:
     
     print("roc:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])]))
     print("roc with zero:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])],zero_arr[~np.isnan(res[label,"Real Value"])]))
-    # sns.histplot(data=res[label], palette="Set2", x="Prediction", hue="Real Value", ax=ax)
+    #sns.histplot(kde=True, data=res[label], palette="Set2", x="Prediction", hue="Real Value", ax=ax)
+    #plt.ylim(0,25)
     sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=ax)
     leg = plt.legend(title=label,loc='upper right', labels=['toxic','not toxic'])
-    leg.get_frame().set_linewidth(0.0)
+    plt.title("KDE of " + label)
+    #leg.get_frame().set_linewidth(0.0)
+
+    ## for AUCs
+    #plt.xlim(0,1)
+    # fpr, tpr, _ = roc_curve(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])])
+    # plt.figure()
+    # plt.plot(
+    #     fpr, tpr, 
+    #     label="ROC curve (area = {0:0.2f})".format(roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])])),
+    #     color="navy",
+    # )
+    # plt.ylabel('True Positive Rate')
+    # plt.xlabel('False Positive Rate')
+    # plt.legend(loc="lower right")
+    # plt.title("ROC-AUC of " + label)
 
     if zoom_on:
         axins = zoomed_inset_axes(ax, 4, loc='center right', borderpad=5)
@@ -88,6 +104,5 @@ for label in labels:
         axins.xaxis.tick_top()
         axins.legend().remove()
     plt.savefig(name + "_" +  label)
-    plt.show()
 print("x", sum_all_x/12)
 print("y", sum_all_y/12)
