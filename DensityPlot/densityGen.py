@@ -34,6 +34,12 @@ name = "xx"
 predSet_df = df1[labels].astype("float")
 testSet_df = df2[labels].astype("float")
 res = testSet_df.compare(predSet_df, keep_shape=True, keep_equal=True, result_names=("Real Value","Prediction"))
+high_x = 0
+low_x = 9999999999
+high_y = 0
+low_y = 9999999999
+sum_all_x = 0
+sum_all_y = 0
 for label in labels:
     fig, ax = plt.subplots()
     zero_arr = np.zeros(len(res[label,"Real Value"]))
@@ -42,16 +48,31 @@ for label in labels:
     y = []
     for value in res[label,"Real Value"]:
         if value == 1:
-            x.append(res[label,"Prediction"][ind])   
+            x.append(res[label,"Prediction"][ind])
+            if res[label,"Prediction"][ind] > high_x:
+                high_x = res[label,"Prediction"][ind]
+            if res[label,"Prediction"][ind] < low_x:
+                low_x = res[label,"Prediction"][ind]
         elif value == 0:
-            y.append(res[label,"Prediction"][ind])   
+            y.append(res[label,"Prediction"][ind])
+            if res[label,"Prediction"][ind] < low_y:
+                low_y = res[label,"Prediction"][ind]
+            if res[label,"Prediction"][ind] > high_y:
+                high_y = res[label,"Prediction"][ind]
         ind += 1
     print(label,":")
+    sum_all_x += sum(x)/len(x)
+    sum_all_y += sum(y)/len(y)
+    print("AVG Val 1:", sum(x)/len(x))
+    print("AVG Val 0:", sum(y)/len(y))
+    print("High/Low x:", high_x,low_x)
+    print("High/Low y:", high_y,low_y)
     print("hit:",len(x))
     print("no hit:",len(y))
     
     print("roc:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])]))
     print("roc with zero:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])],zero_arr[~np.isnan(res[label,"Real Value"])]))
+    # sns.histplot(data=res[label], palette="Set2", x="Prediction", hue="Real Value", ax=ax)
     sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=ax)
     leg = plt.legend(title=label,loc='upper right', labels=['toxic','not toxic'])
     leg.get_frame().set_linewidth(0.0)
@@ -68,3 +89,5 @@ for label in labels:
         axins.legend().remove()
     plt.savefig(name + "_" +  label)
     plt.show()
+print("x", sum_all_x/12)
+print("y", sum_all_y/12)
