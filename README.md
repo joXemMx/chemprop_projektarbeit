@@ -1,3 +1,18 @@
+# Project Work 
+This is the Chemrop framework used in our toxicity prediction project. 
+Files added by us include
+
+- [DensityPlot](DensityPlot)
+- [additional_scripts](additional_scripts)
+- [auc_plots](auc_plots)
+- [newdata](newdata)
+- [tox21_checkpoints](tox21_checkpoints)
+
+Below is the original README of Chemprop, which provides plenty of information on model training, prediction, hyperparameter optimization and much more.
+We refer to this regarding the general usage of Chemprop.
+
+---
+
 ![ChemProp Logo](docs/source/_static/images/chemprop_logo.svg)
 # Molecular Property Prediction
 
