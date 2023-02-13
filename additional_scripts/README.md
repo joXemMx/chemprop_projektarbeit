@@ -17,5 +17,5 @@ Other scripts may take arguments instead.
 ### Legacy
 - `tsv_to_csv.py` simply converts a tsv file to a csv
 - `rm_invalid_smiles_preds.py` removes invalid rows from predictions
-- `rounding.py` rounds predicted probabilities to 0 or 1
+- `rounding.py` rounds predicted probabilities to 0 or 1 (automatically does `rm_invalid_smiles_preds.py` beforehand)
 - `test_separation.py` creates a data set excluding the test set from OBG index files
