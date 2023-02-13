@@ -11,7 +11,7 @@ Files added by us include
 Below is the original README of Chemprop, which provides plenty of information on model training, prediction, hyperparameter optimization and much more.
 We refer to this regarding the general usage of Chemprop.
 
-For environment creation, you may also follow Chemprops original README. We used the exact file they provide and had no compatibility problems when adding or updating packages (i.e. updating pandas to > 1.5 for the density plots, or installing a torch versoin with cuda support).
+For environment creation, you may also follow Chemprops original README. We used the exact file they provide and had no compatibility problems when adding or updating packages (i.e. updating pandas to > 1.5 for the density plots, or installing a torch version with GPU support).
 Else, we supply our environment list as `project_environment.yml`.
 
 ---
