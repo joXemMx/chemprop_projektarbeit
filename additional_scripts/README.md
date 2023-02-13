@@ -11,7 +11,7 @@ Other scripts may take arguments instead.
 - `ogb_split.py` reads the index lists of the OGB scaffold split and produces train, test and val datasets
 - `tox21_split.py` generates data files from index files; includes `ogb_split.py`
 - `open_pckl.py` reads a pickle file generated when training a model with the `--save_smiles_splits` parameter and produces train, test and val index files
-- `plot_roc_auc` is used for plotting the micro- and macro-average ROC curves
+- `plot_roc_auc.py` is used for plotting the micro- and macro-average ROC curves
 
 
 ### Legacy
