@@ -1,14 +1,19 @@
+### some examples for calls we needed and collected to not look them up all of the time
+
 # standard tox21 train
 python train.py --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints/standard --split_type scaffold_balanced --quiet
+
+# train while automatically saving splits and predictions into the models folder
+python train.py --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints/standard --split_type scaffold_balanced --quiet --save_smiles_splits --save_preds
 
 # train on seperate train/test/val 
 python train.py --data_path data/tox21_split/tox21_train.csv --separate_val_path data/tox21_split/tox21_validation.csv --separate_test_path data/tox21_split/tox21_test.csv --dataset_type classification --save_dir tox21_checkpoints/standard_manualSplit --quiet
 
-# cross validation training, results in model ensemble
-python /home/vo87poq/chemprop_projektarbeit/train.py --data_path /home/vo87poq/chemprop_projektarbeit/data/tox21.csv --dataset_type classification --save_dir /home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/standard_10fold_gpu --split_type scaffold_balanced --num_folds 10 --quiet
+# (10 fold) cross validation training, results in model ensemble
+python train.py --data_path /home/vo87poq/chemprop_projektarbeit/data/tox21.csv --dataset_type classification --save_dir /home/vo87poq/chemprop_projektarbeit/tox21_checkpoints/standard_10fold_gpu --split_type scaffold_balanced --num_folds 10 --quiet
 
 # optimize hyperparameters on train set
-python hyperparameter_optimization.py --data_path data/tox21_split/tox21_train.csv --dataset_type classification --epochs=30 --seed=0 --num_iters=100 --config_save_path data/tox21_split/config.txt --log_dir data/tox21_split/logs
+python hyperparameter_optimization.py --data_path data/tox21_split/tox21_train.csv --dataset_type classification --num_iters=100 --config_save_path data/tox21_split/config.txt --log_dir data/tox21_split/logs
 
 # train on seperate train/test/val with optimized hyperparameter
 python train.py --data_path data/tox21_split/tox21_train.csv --separate_val_path data/tox21_split/tox21_validation.csv --separate_test_path data/tox21_split/tox21_test.csv --dataset_type classification --config_path data/tox21_split/config.txt --save_dir tox21_checkpoints/optimized_1 --quiet
