@@ -3,7 +3,7 @@ import sys
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from sklearn.metrics import roc_auc_score, roc_curve, auc
+from sklearn.metrics import roc_auc_score, roc_curve, auc, precision_recall_curve
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes, mark_inset
 
 # GraphTrans Input
@@ -70,13 +70,87 @@ for label in labels:
     print("hit:",len(x))
     print("no hit:",len(y))
     
-    print("roc:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])]))
-    print("roc with zero:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])],zero_arr[~np.isnan(res[label,"Real Value"])]))
-    #sns.histplot(kde=True, data=res[label], palette="Set2", x="Prediction", hue="Real Value", ax=ax)
+    # print("roc:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], res[label,"Prediction"][~np.isnan(res[label,"Real Value"])]))
+    # print("roc with zero:",roc_auc_score(res[label,"Real Value"][~np.isnan(res[label,"Real Value"])],zero_arr[~np.isnan(res[label,"Real Value"])]))
+    # fig, (ax1, ax2) = plt.subplots(nrows=2)
+    # def log_freq(weights):
+    #     return np.log10(weights)
+    # sns.histplot(x, bins=20, binrange=[0,1], alpha=0.5, color='red', ax=ax1, log_scale=(False,False))
+    # sns.histplot(y, bins=20, binrange=[0,1], alpha=0.5, color='blue', ax=ax2, log_scale=(False,False))
+    # fig.subplots_adjust(hspace=0.5)
+    # ax1.set_ylabel('Frequency')
+    # ax1.set_xlabel('Predictions for toxic')
+    # ax2.set_ylabel('Frequency')
+    # ax2.set_xlabel('Predictions for non-toxic')
+    # plt.suptitle('Histogram of Two Datasets')
+
+    # arr = res[label,"Real Value"][~np.isnan(res[label,"Real Value"])]
+    # print(arr)
+    # percentile = sum(arr) / len(arr)
+    # print(percentile)
+    # print(sum(arr))
+    # precision, recall, thresholds = precision_recall_curve(y_true = res[label,"Real Value"][~np.isnan(res[label,"Real Value"])], probas_pred = res[label,"Prediction"][~np.isnan(res[label,"Real Value"])])
+    # plt.plot(recall, precision, label='PR Curve')
+    # plt.axhline(y = percentile, color = 'r', linestyle = '--')
+    # ax.legend(['precision pecall purve', 'percentage of positive class'])
+    # plt.xlabel('Recall')
+    # plt.ylabel('Precision')
+    # plt.title('Precision-Recall Curve')
+    # plt.savefig("test pr")
+
+    true_preds = x
+    false_preds = y
+
+    # set the number of rows and columns in the plot
+    nrows = 5
+    ncols = 2
+
+    # set the thresholds and corresponding titles for each plot
+    thresholds = np.arange(0.1, 1.1, 0.1)
+    titles = [f'Threshold {threshold:.1f}' for threshold in thresholds]
+
+    # create the subplots
+    fig, axs = plt.subplots(nrows=nrows, ncols=ncols, figsize=(10, 20))
+    axs = axs.flatten()
+
+    # loop over the thresholds and plot the histograms
+    for i, thresh in enumerate(thresholds):
+        # round the predictions based on the threshold
+        pred_true_thresh = np.round(true_preds >= thresh)
+        pred_false_thresh = np.round(false_preds >= thresh)
+        
+        # Compute counts of 0s and 1s
+        zeros_true = np.sum(pred_true_thresh == 0)
+        ones_true = np.sum(pred_true_thresh == 1)
+        zeros_false = np.sum(pred_false_thresh == 0)
+        ones_false = np.sum(pred_false_thresh == 1)
+        
+        # Create tick plot on current subplot
+        axs[i].bar(['True - 0', 'True - 1', 'False - 0', 'False - 1'], [zeros_true, ones_true, zeros_false, ones_false])
+        axs[i].set_title(f'Threshold: {thresh:.1f}')
+        axs[i].set_ylim(0, 1000)
+        axs[i].set_ylabel('Counts')
+
+    # Set common xlabel for all subplots
+    fig.add_subplot(111, frameon=False)
+    plt.tick_params(labelcolor='none', top=False, bottom=False, left=False, right=False)
+    plt.xlabel('Class')
+    plt.subplots_adjust(hspace=0.5)
+
+    # show the plot
+    plt.savefig("multi_hist.png")
+
+    break
+
+    #plt.savefig("test split")
+    #print(res[label][~np.isnan(res[label, "Real Value"])])
+    #sns.histplot(bins=20, binrange=[0,1], data=res[label][~np.isnan(res[label, "Real Value"])], palette="Set2", x="Prediction", hue="Real Value", log_scale=(False,True))
+    #plt.savefig("test sns")
+    #break
     #plt.ylim(0,25)
-    sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=ax)
-    leg = plt.legend(title=label,loc='upper right', labels=['toxic','not toxic'])
-    plt.title("KDE of " + label)
+    #sns.kdeplot(data=res[label], common_norm=False, palette="Set2", x="Prediction", hue="Real Value", ax=ax)
+    #leg = plt.legend(title=label,loc='upper right', labels=['toxic','not toxic'])
+    #plt.title("KDE of " + label)
     #leg.get_frame().set_linewidth(0.0)
 
     ## for AUCs
@@ -103,6 +177,6 @@ for label in labels:
         axins.set(ylabel=None, xlabel=None, yticklabels=[])
         axins.xaxis.tick_top()
         axins.legend().remove()
-    plt.savefig(name + "_" +  label)
+    #plt.savefig(name + "_" +  label)
 print("x", sum_all_x/12)
 print("y", sum_all_y/12)
