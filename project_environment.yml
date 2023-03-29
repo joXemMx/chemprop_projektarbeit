@@ -225,3 +225,4 @@ dependencies:
     - sphinxcontrib-serializinghtml==1.1.5
     - typed-argument-parser==1.7.2
     - typing-inspect==0.8.0
+prefix: /home/vo87poq/miniconda3/envs/chemprop
